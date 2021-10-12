@@ -122,7 +122,7 @@ open class WSTagView: UIView, UITextInputTraits {
         addSubview(closeButton)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.addTarget(self, action: #selector(didTapCloseButton(_:)), for: .touchUpInside)
-        closeButton.setImage(#imageLiteral(resourceName: "icon.close"), for: .normal)
+        closeButton.setImage(#imageLiteral(resourceName: "ic_close.pdf"), for: .normal)
         
         NSLayoutConstraint.activate([
             closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
