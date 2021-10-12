@@ -127,12 +127,8 @@ open class WSTagView: UIView, UITextInputTraits {
             closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 8),
             closeButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             closeButton.widthAnchor.constraint(equalToConstant: 12),
-            closeButton.heightAnchor.constraint(equalToConstant: 12),
-            closeButton.leadingAnchor.constraint(equalTo: textLabel.trailingAnchor, constant: 4)
+            closeButton.heightAnchor.constraint(equalToConstant: 12)
         ])
-        
-        closeButton.frame = CGRect(x: layoutMargins.left, y: layoutMargins.top, width: 0, height: 0)
-        closeButton.backgroundColor = .red
 
         self.displayText = tag.text
         updateLabelText()
