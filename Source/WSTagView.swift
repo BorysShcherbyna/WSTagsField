@@ -121,10 +121,11 @@ open class WSTagView: UIView, UITextInputTraits {
         
         addSubview(closeButton)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
-        closeButton.backgroundColor = .red
+        closeButton.addTarget(self, action: #selector(didTapCloseButton(_:)), for: .touchUpInside)
+        closeButton.setImage(#imageLiteral(resourceName: "icon.close"), for: .normal)
         
         NSLayoutConstraint.activate([
-            closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 8),
+            closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
             closeButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             closeButton.widthAnchor.constraint(equalToConstant: 12),
             closeButton.heightAnchor.constraint(equalToConstant: 12)
@@ -133,8 +134,6 @@ open class WSTagView: UIView, UITextInputTraits {
         self.displayText = tag.text
         updateLabelText()
 
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer))
-        addGestureRecognizer(tapRecognizer)
         setNeedsLayout()
     }
 
@@ -236,7 +235,7 @@ open class WSTagView: UIView, UITextInputTraits {
     }
 
     // MARK: - Gesture Recognizers
-    @objc func handleTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
+    @objc func didTapCloseButton(_ sender: UIButton) {
         if selected {
             return
         }
