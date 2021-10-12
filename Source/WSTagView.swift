@@ -11,6 +11,7 @@ import UIKit
 open class WSTagView: UIView, UITextInputTraits {
 
     fileprivate let textLabel = UILabel()
+    fileprivate let closeButton = UIButton()
 
     open var displayText: String = "" {
         didSet {
@@ -117,6 +118,21 @@ open class WSTagView: UIView, UITextInputTraits {
         textLabel.textColor = .white
         textLabel.backgroundColor = .clear
         addSubview(textLabel)
+        
+        addSubview(closeButton)
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        closeButton.backgroundColor = .red
+        
+        NSLayoutConstraint.activate([
+            closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 8),
+            closeButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            closeButton.widthAnchor.constraint(equalToConstant: 12),
+            closeButton.heightAnchor.constraint(equalToConstant: 12),
+            closeButton.leadingAnchor.constraint(equalTo: textLabel.trailingAnchor, constant: 4)
+        ])
+        
+        closeButton.frame = CGRect(x: layoutMargins.left, y: layoutMargins.top, width: 0, height: 0)
+        closeButton.backgroundColor = .red
 
         self.displayText = tag.text
         updateLabelText()
@@ -166,7 +182,7 @@ open class WSTagView: UIView, UITextInputTraits {
 
     open override var intrinsicContentSize: CGSize {
         let labelIntrinsicSize = textLabel.intrinsicContentSize
-        return CGSize(width: labelIntrinsicSize.width + layoutMargins.left + layoutMargins.right,
+        return CGSize(width: labelIntrinsicSize.width + 16 + layoutMargins.left + layoutMargins.right, //16 is for close button
                       height: labelIntrinsicSize.height + layoutMargins.top + layoutMargins.bottom)
     }
 
