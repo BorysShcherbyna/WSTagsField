@@ -269,19 +269,16 @@ open class WSCloseButton: UIButton {
         let step1 = UIBezierPath()
         step1.move(to: frame.origin)
         step1.addLine(to: CGPoint(x: frame.maxX, y: frame.maxY))
-        
-        UIColor.red.setStroke()
-        
-        step1.stroke()
+        step1.lineWidth = 1.4
         
         let step2 = UIBezierPath()
         step2.move(to: CGPoint(x: frame.maxX, y: frame.minY))
         step2.addLine(to: CGPoint(x: frame.minX, y: frame.maxY))
+        step2.lineWidth = 1.4
         
-        UIColor.red.setStroke()
+        UIColor(red: 0.289, green: 0.295, blue: 0.321, alpha: 1).setStroke()
         
         step1.stroke()
         step2.stroke()
-        
     }
 }
