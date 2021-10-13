@@ -11,7 +11,7 @@ import UIKit
 open class WSTagView: UIView, UITextInputTraits {
 
     fileprivate let textLabel = UILabel()
-    fileprivate let closeButton = UIButton()
+    fileprivate let closeButton = WSCloseButton()
 
     open var displayText: String = "" {
         didSet {
@@ -122,7 +122,6 @@ open class WSTagView: UIView, UITextInputTraits {
         addSubview(closeButton)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.addTarget(self, action: #selector(didTapCloseButton(_:)), for: .touchUpInside)
-        closeButton.setImage(UIImage(named: "ic_close.pdf", in: Bundle(for: Self.self), compatibleWith: nil), for: .normal)
         
         NSLayoutConstraint.activate([
             closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
@@ -258,4 +257,31 @@ extension WSTagView: UIKeyInput {
         onDidRequestDelete?(self, nil)
     }
 
+}
+
+
+open class WSCloseButton: UIButton {
+    
+    open override func draw(_ rect: CGRect) {
+        
+        let frame = rect.inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
+        
+        let step1 = UIBezierPath()
+        step1.move(to: frame.origin)
+        step1.addLine(to: CGPoint(x: frame.maxX, y: frame.maxY))
+        
+        UIColor.red.setStroke()
+        
+        step1.stroke()
+        
+        let step2 = UIBezierPath()
+        step2.move(to: CGPoint(x: frame.maxX, y: frame.minY))
+        step2.addLine(to: CGPoint(x: frame.minX, y: frame.maxY))
+        
+        UIColor.red.setStroke()
+        
+        step1.stroke()
+        step2.stroke()
+        
+    }
 }
