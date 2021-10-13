@@ -10,6 +10,7 @@
 		125AC6EC1F14D13F00137101 /* BackspaceDetectingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125AC6EB1F14D13F00137101 /* BackspaceDetectingTextField.swift */; };
 		125AC6EF1F14D6A600137101 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125AC6EE1F14D6A600137101 /* Constants.swift */; };
 		841FEB70271615AB00613011 /* ic_close.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 841FEB6F271615AB00613011 /* ic_close.pdf */; };
+		841FEB752716C8BE00613011 /* ic_close.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 841FEB6F271615AB00613011 /* ic_close.pdf */; };
 		D77F81B31D2A957400E6FF3E /* WSTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F81B01D2A957400E6FF3E /* WSTag.swift */; };
 		D77F81B41D2A957400E6FF3E /* WSTagsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F81B11D2A957400E6FF3E /* WSTagsField.swift */; };
 		D77F81B51D2A957400E6FF3E /* WSTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F81B21D2A957400E6FF3E /* WSTagView.swift */; };
@@ -207,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841FEB752716C8BE00613011 /* ic_close.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
